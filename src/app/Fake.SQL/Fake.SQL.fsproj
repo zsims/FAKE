@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Fake.SQL</RootNamespace>
     <AssemblyName>Fake.SQL</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Name>Fake.SQL</Name>
     <TargetFrameworkProfile />

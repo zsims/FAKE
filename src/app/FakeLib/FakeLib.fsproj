@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>FakeLib</RootNamespace>
     <AssemblyName>FakeLib</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Name>FakeLib</Name>
     <TargetFrameworkProfile />
@@ -118,7 +118,6 @@
   <ItemGroup>
     <Reference Include="FSharp.Core">
       <HintPath>..\..\..\tools\FSharp\FSharp.Core.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>..\..\..\lib\ICSharpCode.SharpZipLib.dll</HintPath>

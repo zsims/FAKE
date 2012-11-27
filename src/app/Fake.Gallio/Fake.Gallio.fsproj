@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Fake.Gallio</RootNamespace>
     <AssemblyName>Fake.Gallio</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <Name>Fake.Gallio</Name>
     <TargetFrameworkProfile />
     <FscToolPath>..\..\..\tools\FSharp\</FscToolPath>
