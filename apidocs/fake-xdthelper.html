@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Repository - FAKE - F# Make</title>
+    <title>XDTHelper - FAKE - F# Make</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Steffen Forkmann, Mauricio Scheffer, Colin Bull">
@@ -36,13 +36,30 @@
 
 
 
-<h1>Repository</h1>
+<h1>XDTHelper</h1>
 <div class="xmldoc">
-<p>Contains functions which allow basic operations on git repositories.
-All operations assume that the CommandHelper can find git.exe.</p>
+<p>Contains functions used to transform config (or any XML) files using Microsoft's XML Document Transformations.</p>
 </div>
 
 <!-- Render nested types and modules, if there are any -->
+  <h2>Nested types and modules</h2>
+  <div>
+      <table class="table table-bordered type-list">
+    <thead>
+      <tr><td>Type</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="type-name">
+            <a href="fake-xdthelper-fakexmltransformationlogger.html">FakeXmlTransformationLogger</a>
+          </td>
+          <td class="xmldoc"><p>Integrates XDT logging into FAKE logging.</p>
+</td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
 
   <h3>Functions and values</h3>
   <table class="table table-bordered member-list">
@@ -53,107 +70,57 @@ All operations assume that the CommandHelper can find git.exe.</p>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '721', 721)" onmouseover="showTip(event, '721', 721)">
-            clone workingDir repoUrl toPath
+          <code onmouseout="hideTip(event, '611', 611)" onmouseover="showTip(event, '611', 611)">
+            TransformFile (...)
           </code>
-          <div class="tip" id="721">
-            <strong>Signature:</strong> workingDir:string -&gt; repoUrl:string -&gt; toPath:string -&gt; unit<br />
+          <div class="tip" id="611">
+            <strong>Signature:</strong> inXmlFile:string -&gt; transformFile:string -&gt; outXmlFile:string -&gt; unit<br />
                       </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/Git/Repository.fs#L15-15" class="github-link">
+            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/XDTHelper.fs#L66-66" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Clones a git repository.</p>
-
-<h2>Parameters</h2>
-
-<ul>
-<li><code>workingDir</code> - The working directory.</li>
-<li><code>repoUrl</code> - The URL to the origin.</li>
-<li><code>toPath</code> - Specifes the new target subfolder.</li>
-</ul>
+          <p>Reads XML file (typically a config file), makes changes according to XDT transform syntax, saves result.</p>
 
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '722', 722)" onmouseover="showTip(event, '722', 722)">
-            cloneSingleBranch (...)
+          <code onmouseout="hideTip(event, '612', 612)" onmouseover="showTip(event, '612', 612)">
+            TransformFilesWithConfigName (...)
           </code>
-          <div class="tip" id="722">
-            <strong>Signature:</strong> workingDir:string -&gt; repoUrl:string -&gt; branchName:string -&gt; toPath:string -&gt; unit<br />
+          <div class="tip" id="612">
+            <strong>Signature:</strong> configName:string -&gt; files:FileIncludes -&gt; unit<br />
                       </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/Git/Repository.fs#L24-24" class="github-link">
+            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/XDTHelper.fs#L86-86" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Clones a single branch of a git repository.</p>
-
-<h2>Parameters</h2>
-
-<ul>
-<li><code>workingDir</code> - The working directory.</li>
-<li><code>repoUrl</code> - The URL to the origin.</li>
-<li><code>branchname</code> - Specifes the target branch.</li>
-<li><code>toPath</code> - Specifes the new target subfolder.</li>
-</ul>
+          <p>Modifies XML files in place using an XDT file named by inserting a .configName in between each filename and .extension.</p>
 
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '723', 723)" onmouseover="showTip(event, '723', 723)">
-            fullclean repositoryDir
+          <code onmouseout="hideTip(event, '613', 613)" onmouseover="showTip(event, '613', 613)">
+            TransformFileWithConfigName (...)
           </code>
-          <div class="tip" id="723">
-            <strong>Signature:</strong> repositoryDir:string -&gt; unit<br />
+          <div class="tip" id="613">
+            <strong>Signature:</strong> configName:string -&gt; xmlFile:string -&gt; unit<br />
                       </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/Git/Repository.fs#L46-46" class="github-link">
+            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/XDTHelper.fs#L78-78" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Cleans a directory by removing all files and sub-directories.</p>
-
-<h2>Parameters</h2>
-
-<ul>
-<li><code>repositoryDir</code> - The path of the directory to clean.</li>
-</ul>
-
-        </td>
-      </tr>
-      <tr>
-        <td class="member-name">
-
-          <code onmouseout="hideTip(event, '724', 724)" onmouseover="showTip(event, '724', 724)">
-            init repositoryDir bare shared
-          </code>
-          <div class="tip" id="724">
-            <strong>Signature:</strong> repositoryDir:string -&gt; bare:bool -&gt; shared:bool -&gt; unit<br />
-                      </div>
-        </td>
-        <td class="xmldoc">
-            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/Git/Repository.fs#L35-35" class="github-link">
-              <img src="../content/img/github.png" class="normal" />
-              <img src="../content/img/github-blue.png" class="hover" />
-            </a>
-          <p>Inits a git repository.</p>
-
-<h2>Parameters</h2>
-
-<ul>
-<li><code>repositoryDir</code> - The path of the target directory.</li>
-<li><code>bare</code> - If the new directory is a bare directory.</li>
-<li><code>shared</code> - Specifies that the git repository is to be shared amongst several users. This allows users belonging to the same group to push into that repository.</li>
-</ul>
+          <p>Modifies an XML file in place using an XDT file named by inserting a .configName in between the filename and .extension.</p>
 
         </td>
       </tr>
