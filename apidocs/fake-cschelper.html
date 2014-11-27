@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>TestFlightHelper - FAKE - F# Make</title>
+    <title>CscHelper - FAKE - F# Make</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Steffen Forkmann, Mauricio Scheffer, Colin Bull">
@@ -36,9 +36,9 @@
 
 
 
-<h1>TestFlightHelper</h1>
+<h1>CscHelper</h1>
 <div class="xmldoc">
-<p>Contains tasks to upload apps to <a href="http://testflightapp.com">TestFlight</a></p>
+<p>Contains tasks to compile C# source files with CSC.EXE (C# Compiler).</p>
 </div>
 
 <!-- Render nested types and modules, if there are any -->
@@ -51,9 +51,23 @@
     <tbody>
         <tr>
           <td class="type-name">
-            <a href="fake-testflighthelper-testflightparams.html">TestFlightParams</a>
+            <a href="fake-cschelper-cscparams.html">CscParams</a>
           </td>
-          <td class="xmldoc"><p>The TestFlight parameter type.</p>
+          <td class="xmldoc"><p>Compiler parameters</p>
+</td>
+        </tr>
+        <tr>
+          <td class="type-name">
+            <a href="fake-cschelper-cscplatform.html">CscPlatform</a>
+          </td>
+          <td class="xmldoc"><p>Supported platforms</p>
+</td>
+        </tr>
+        <tr>
+          <td class="type-name">
+            <a href="fake-cschelper-csctarget.html">CscTarget</a>
+          </td>
+          <td class="xmldoc"><p>Supported output types</p>
 </td>
         </tr>
     </tbody>
@@ -70,45 +84,93 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '559', 559)" onmouseover="showTip(event, '559', 559)">
-            TestFlight setParams
+          <code onmouseout="hideTip(event, '57', 57)" onmouseover="showTip(event, '57', 57)">
+            csc setParams inputFiles
           </code>
-          <div class="tip" id="559">
-            <strong>Signature:</strong> setParams:(TestFlightParams -&gt; TestFlightParams) -&gt; unit<br />
+          <div class="tip" id="57">
+            <strong>Signature:</strong> setParams:(CscParams -&gt; CscParams) -&gt; inputFiles:string list -&gt; int<br />
                       </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/TestFlightHelper.fs#L75-75" class="github-link">
+            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/CscHelper.fs#L80-80" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Uploads the app build to TestFlight.</p>
+          <p>Compiles the given C# source files with the specified parameters.</p>
 
 <h2>Parameters</h2>
 
 <ul>
-<li><code>setParams</code> - Function used to manipulate the default TestFlightParams value.</li>
+<li><code>setParams</code> - Function used to overwrite the default CSC parameters.</li>
+<li><code>inputFiles</code> - The C# input files.</li>
 </ul>
+
+<h2>Returns</h2>
+
+<p>The exit status code of the compile process.</p>
+
+<h2>Sample</h2>
+
+<pre><code>["file1.cs"; "file2.cs"]
+|&gt; csc (fun parameters -&gt;
+         { parameters with Output = ...
+                           Target = ...
+                           ... })
+</code></pre>
 
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '560', 560)" onmouseover="showTip(event, '560', 560)">
-            TestFlightDefaults 
+          <code onmouseout="hideTip(event, '58', 58)" onmouseover="showTip(event, '58', 58)">
+            Csc setParams inputFiles
           </code>
-          <div class="tip" id="560">
-            <strong>Signature:</strong> TestFlightParams<br />
+          <div class="tip" id="58">
+            <strong>Signature:</strong> setParams:(CscParams -&gt; CscParams) -&gt; inputFiles:string list -&gt; unit<br />
                       </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/TestFlightHelper.fs#L28-28" class="github-link">
+            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/CscHelper.fs#L123-123" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>The default TestFlight upload parameters.</p>
+          <p>Compiles one or more C# source files with the specified parameters.</p>
 
+<h2>Parameters</h2>
+
+<ul>
+<li><code>setParams</code> - Function used to overwrite the default CSC parameters.</li>
+<li><code>inputFiles</code> - The C# input files.</li>
+</ul>
+
+<h2>Sample</h2>
+
+<pre><code>["file1.cs"; "file2.cs"]
+|&gt; Csc (fun parameters -&gt;
+              { parameters with Output = ...
+                                Target = ...
+                                ... })
+</code></pre>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '59', 59)" onmouseover="showTip(event, '59', 59)">
+            cscExe toolPath srcFiles opts
+          </code>
+          <div class="tip" id="59">
+            <strong>Signature:</strong> toolPath:string -&gt; srcFiles:string list -&gt; opts:string list -&gt; int<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/CscHelper.fs#L48-48" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
         </td>
       </tr>
     </tbody>
