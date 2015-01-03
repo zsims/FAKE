@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>GACParams - FAKE - F# Make</title>
+    <title>WebJobs - FAKE - F# Make</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Steffen Forkmann, Mauricio Scheffer, Colin Bull">
@@ -36,70 +36,99 @@
 
 
 
-<h1>GACParams</h1>
+<h1>WebJobs</h1>
 <div class="xmldoc">
-<p>GAC parameters</p>
+<p>Contains tasks to package and deploy <a href="http://azure.microsoft.com/en-gb/documentation/articles/web-sites-create-web-jobs/">Azure Web Jobs</a> via the <a href="https://github.com/projectkudu/kudu">Kudu</a> Zip controller</p>
 </div>
-  <h3>Record Fields</h3>
+
+<!-- Render nested types and modules, if there are any -->
+  <h2>Nested types and modules</h2>
+  <div>
+      <table class="table table-bordered type-list">
+    <thead>
+      <tr><td>Type</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="type-name">
+            <a href="fake-azure-webjobs-webjob.html">WebJob</a>
+          </td>
+          <td class="xmldoc"><p>WebJob type</p>
+</td>
+        </tr>
+        <tr>
+          <td class="type-name">
+            <a href="fake-azure-webjobs-webjobtype.html">WebJobType</a>
+          </td>
+          <td class="xmldoc"><p>The running modes of webjobs</p>
+</td>
+        </tr>
+        <tr>
+          <td class="type-name">
+            <a href="fake-azure-webjobs-website.html">WebSite</a>
+          </td>
+          <td class="xmldoc"><p>The website that webjobs are deployed to</p>
+</td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+  <h3>Functions and values</h3>
   <table class="table table-bordered member-list">
     <thead>
-      <tr><td>Record Field</td><td>Description</td></tr>
+      <tr><td>Function or value</td><td>Description</td></tr>
     </thead>
     <tbody>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '1059', 1059)" onmouseover="showTip(event, '1059', 1059)">
-            TimeOut
+          <code onmouseout="hideTip(event, '670', 670)" onmouseover="showTip(event, '670', 670)">
+            DeployWebJobs webSites
           </code>
-          <div class="tip" id="1059">
-            <strong>Signature:</strong> TimeSpan<br />
+          <div class="tip" id="670">
+            <strong>Signature:</strong> webSites:WebSite list -&gt; unit<br />
                       </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/GACHelper.fs#L11-11" class="github-link">
+            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/AzureWebJobs.fs#L79-79" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>The timeout for the process.</p>
+          <p>This task to can be used deploy a prebuilt webjob zip to a website</p>
+
+<h2>Parameters</h2>
+
+<ul>
+<li><code>webSites</code> - The websites and webjobs to deploy.</li>
+</ul>
 
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '1060', 1060)" onmouseover="showTip(event, '1060', 1060)">
-            ToolPath
+          <code onmouseout="hideTip(event, '671', 671)" onmouseover="showTip(event, '671', 671)">
+            PackageWebJobs webSites
           </code>
-          <div class="tip" id="1060">
-            <strong>Signature:</strong> string<br />
+          <div class="tip" id="671">
+            <strong>Signature:</strong> webSites:WebSite list -&gt; unit<br />
                       </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/GACHelper.fs#L9-9" class="github-link">
+            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/AzureWebJobs.fs#L60-60" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>(Required) Path to the gacutil</p>
+          <p>This task to can be used create a zip for each webjob to deploy to a website
+The output structure is: <code>outputpath/{websitename}/webjobs/{continuous/triggered}/{webjobname}.zip</code></p>
 
-        </td>
-      </tr>
-      <tr>
-        <td class="member-name">
+<h2>Parameters</h2>
 
-          <code onmouseout="hideTip(event, '1061', 1061)" onmouseover="showTip(event, '1061', 1061)">
-            WorkingDir
-          </code>
-          <div class="tip" id="1061">
-            <strong>Signature:</strong> string<br />
-                      </div>
-        </td>
-        <td class="xmldoc">
-            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/GACHelper.fs#L13-13" class="github-link">
-              <img src="../content/img/github.png" class="normal" />
-              <img src="../content/img/github-blue.png" class="hover" />
-            </a>
-          <p>The directory where the process will be started.</p>
+<ul>
+<li><code>webSites</code> - The websites and webjobs to build zips from.</li>
+</ul>
 
         </td>
       </tr>
