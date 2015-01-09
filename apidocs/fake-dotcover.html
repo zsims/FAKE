@@ -59,7 +59,7 @@
           <td class="type-name">
             <a href="fake-dotcover-dotcoverparams.html">DotCoverParams</a>
           </td>
-          <td class="xmldoc"><p>The DotCover parameter type for running coverage</p>
+          <td class="xmldoc"><p>The dotCover parameter type for running coverage</p>
 </td>
         </tr>
         <tr>
@@ -96,7 +96,7 @@
                       </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/DotCover.fs#L63-63" class="github-link">
+            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/DotCover.fs#L69-69" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
@@ -114,7 +114,7 @@
                       </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/DotCover.fs#L72-72" class="github-link">
+            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/DotCover.fs#L80-80" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
@@ -132,7 +132,7 @@
                       </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/DotCover.fs#L80-80" class="github-link">
+            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/DotCover.fs#L89-89" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
@@ -150,7 +150,7 @@
                           <strong>Type parameters:</strong> '?8429          </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/DotCover.fs#L93-93" class="github-link">
+            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/DotCover.fs#L103-103" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
@@ -168,16 +168,16 @@
                       </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/DotCover.fs#L107-107" class="github-link">
+            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/DotCover.fs#L117-117" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Runs the DotCover "cover" command, using a target executable (such as NUnit or MSpec) and generates a snapshot file.</p>
+          <p>Runs the dotCover "cover" command, using a target executable (such as NUnit or MSpec) and generates a snapshot file.</p>
 
 <h2>Parameters</h2>
 
 <ul>
-<li><code>setParams</code> - Function used to overwrite the DotCover default parameters.</li>
+<li><code>setParams</code> - Function used to overwrite the dotCover default parameters.</li>
 </ul>
 
         </td>
@@ -193,11 +193,11 @@
                       </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/DotCover.fs#L26-26" class="github-link">
+            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/DotCover.fs#L27-27" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>The DotCover defaeult parameters</p>
+          <p>The dotCover default parameters</p>
 
         </td>
       </tr>
@@ -212,25 +212,25 @@
                       </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/DotCover.fs#L123-123" class="github-link">
+            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/DotCover.fs#L133-133" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Runs the DotCover "merge" command. This combines dotCover snaphots into a single
+          <p>Runs the dotCover "merge" command. This combines dotCover snaphots into a single
 snapshot, enabling you to merge test coverage from multiple test running frameworks</p>
 
 <h2>Parameters</h2>
 
 <ul>
-<li><code>setParams</code> - Function used to overwrite the DotCover merge default parameters.</li>
+<li><code>setParams</code> - Function used to overwrite the dotCover merge default parameters.</li>
 </ul>
 
 <h2>Sample</h2>
 
 <pre><code>DotCoverMerge (fun p -&gt; { p with 
-                    Source = [artifactsDir @@ "NUnitDotCover.snapshot"
-                              artifactsDir @@ "MSpecDotCover.snapshot"]
-                    Output = artifactsDir @@ "DotCover.snapshot" }) 
+                    Source = [artifactsDir @@ "NUnitDotCoverSnapshot.dcvr"
+                              artifactsDir @@ "MSpecDotCoverSnapshot.dcvr"]
+                    Output = artifactsDir @@ "dotCoverSnapshot.dcvr" }) 
 </code></pre>
 
         </td>
@@ -246,7 +246,7 @@ snapshot, enabling you to merge test coverage from multiple test running framewo
                       </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/DotCover.fs#L42-42" class="github-link">
+            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/DotCover.fs#L45-45" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
@@ -264,16 +264,16 @@ snapshot, enabling you to merge test coverage from multiple test running framewo
                       </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/DotCover.fs#L186-186" class="github-link">
+            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/DotCover.fs#L196-196" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Runs the DotCover "cover" command against the MSpec test runner.</p>
+          <p>Runs the dotCover "cover" command against the MSpec test runner.</p>
 
 <h2>Parameters</h2>
 
 <ul>
-<li><code>setDotCoverParams</code> - Function used to overwrite the DotCover report default parameters.</li>
+<li><code>setDotCoverParams</code> - Function used to overwrite the dotCover report default parameters.</li>
 <li><code>setMSpecParams</code> - Function used to overwrite the MSpec default parameters.</li>
 </ul>
 
@@ -282,7 +282,7 @@ snapshot, enabling you to merge test coverage from multiple test running framewo
 <pre><code>!! (buildDir @@ buildMode @@ "/*.Unit.Tests.dll") 
     |&gt; DotCoverMSpec 
         (fun dotCoverOptions -&gt; { dotCoverOptions with 
-                Output = artifactsDir @@ "MSpecDotCover.snapshot" }) 
+                Output = artifactsDir @@ "MSpecDotCoverSnapshot.dcvr" }) 
         (fun mSpecOptions -&gt; { mSpecOptions with
                 Silent = true })
 </code></pre>
@@ -300,16 +300,16 @@ snapshot, enabling you to merge test coverage from multiple test running framewo
                       </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/DotCover.fs#L156-156" class="github-link">
+            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/DotCover.fs#L166-166" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Runs the DotCover "cover" command against the NUnit test runner.</p>
+          <p>Runs the dotCover "cover" command against the NUnit test runner.</p>
 
 <h2>Parameters</h2>
 
 <ul>
-<li><code>setDotCoverParams</code> - Function used to overwrite the DotCover report default parameters.</li>
+<li><code>setDotCoverParams</code> - Function used to overwrite the dotCover report default parameters.</li>
 <li><code>setNUnitParams</code> - Function used to overwrite the NUnit default parameters.</li>
 </ul>
 
@@ -318,7 +318,7 @@ snapshot, enabling you to merge test coverage from multiple test running framewo
 <pre><code>!! (buildDir @@ buildMode @@ "/*.Unit.Tests.dll") 
     |&gt; DotCoverNUnit 
         (fun dotCoverOptions -&gt; { dotCoverOptions with 
-                Output = artifactsDir @@ "NUnitDotCover.snapshot" }) 
+                Output = artifactsDir @@ "NUnitDotCoverSnapshot.dcvr" }) 
         (fun nUnitOptions -&gt; { nUnitOptions with
                 DisableShadowCopy = true })
 </code></pre>
@@ -336,23 +336,23 @@ snapshot, enabling you to merge test coverage from multiple test running framewo
                       </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/DotCover.fs#L138-138" class="github-link">
+            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/DotCover.fs#L148-148" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
-          <p>Runs the DotCover "report" command. This generates a report from a DotCover snapshot</p>
+          <p>Runs the dotCover "report" command. This generates a report from a dotCover snapshot</p>
 
 <h2>Parameters</h2>
 
 <ul>
-<li><code>setParams</code> - Function used to overwrite the DotCover report default parameters.</li>
+<li><code>setParams</code> - Function used to overwrite the dotCover report default parameters.</li>
 </ul>
 
 <h2>Sample</h2>
 
 <pre><code>DotCoverReport (fun p -&gt; { p with 
-                    Source = artifactsDir @@ "DotCover.snapshot"
-                    Output = artifactsDir @@ "DotCover.xml"
+                    Source = artifactsDir @@ "dotCoverSnapshot.dcvr"
+                    Output = artifactsDir @@ "dotCoverReport.xml"
                     ReportType = DotCoverReportType.Xml })
 </code></pre>
 
@@ -369,7 +369,7 @@ snapshot, enabling you to merge test coverage from multiple test running framewo
                       </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/DotCover.fs#L56-56" class="github-link">
+            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/DotCover.fs#L61-61" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
@@ -387,7 +387,7 @@ snapshot, enabling you to merge test coverage from multiple test running framewo
                       </div>
         </td>
         <td class="xmldoc">
-            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/DotCover.fs#L89-89" class="github-link">
+            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/DotCover.fs#L99-99" class="github-link">
               <img src="../content/img/github.png" class="normal" />
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
