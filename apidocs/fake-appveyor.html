@@ -56,6 +56,13 @@
           <td class="xmldoc"><p>AppVeyor environment variables as <a href="http://www.appveyor.com/docs/environment-variables">described</a></p>
 </td>
         </tr>
+        <tr>
+          <td class="type-name">
+            <a href="fake-appveyor-testresultstype.html">TestResultsType</a>
+          </td>
+          <td class="xmldoc"><p>Union type representing the available test result formats accepted by AppVeyor.</p>
+</td>
+        </tr>
     </tbody>
   </table>
 
@@ -197,6 +204,25 @@
               <img src="../content/img/github-blue.png" class="hover" />
             </a>
           <p>Reports a succeeded test.</p>
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '22', 22)" onmouseover="showTip(event, '22', 22)">
+            UploadTestResultsXml (...)
+          </code>
+          <div class="tip" id="22">
+            <strong>Signature:</strong> testResultsType:&#39;?8827 -&gt; outputDir:string -&gt; unit<br />
+                          <strong>Type parameters:</strong> '?8827          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="https://github.com/fsharp/FAKE/blob/master/src/app/FakeLib/AppVeyor.fs#L133-133" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Uploads the test results .xml file to the Test tab of the build console.</p>
 
         </td>
       </tr>
