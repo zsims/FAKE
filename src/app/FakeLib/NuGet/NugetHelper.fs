@@ -209,7 +209,7 @@ let private createNuspecFile parameters nuSpec =
                          "@references@", referencesXml
                          "@files@", filesXml ]
     
-    processTemplates replacements [ specFile ]
+    processTemplates replacements [ specFile ] encoding
     tracefn "Created nuspec file %s" specFile
     specFile
 

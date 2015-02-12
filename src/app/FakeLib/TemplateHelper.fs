@@ -3,7 +3,7 @@
 module Fake.TemplateHelper
 
 /// Loads all templates (lazy - line by line!)    
-let loadTemplates seq = Seq.map (fun fileName -> fileName, ReadFile fileName) seq
+let loadTemplates encoding seq = Seq.map (fun fileName -> fileName, ReadFileWithEncoding fileName encoding) seq
 
 /// Replaces a bunch of the keywords in all files (lazy - line by line!)
 let replaceKeywords replacements = 
@@ -19,8 +19,9 @@ let replaceKeywords replacements =
 let saveFiles = Seq.iter (fun (fileName, file) -> WriteFile fileName (Seq.toList file))
 
 /// Replaces the templates with the given replacements
-let processTemplates replacements files = 
+let processTemplates replacements fileEncoding files = 
     files
-    |> loadTemplates
+    |> loadTemplates encoding
     |> replaceKeywords replacements
     |> saveFiles
+

@@ -419,8 +419,16 @@ let WriteConfigFile configFileName parameters =
 /// ## Parameters
 ///
 ///  - `replacements` - A sequence of tuples with the patterns and the replacements.
+///  - `fileEncoding` - The encoding to use to read/write the file
 ///  - `files` - The files to process.
-let ReplaceInFiles replacements files = processTemplates replacements files
+let ReplaceInFilesWithEncoding replacements fileEncoding files = processTemplates replacements fileEncoding files
+
+/// Replaces all occurences of the patterns in the given files with the given replacements. The default environment encoding is used.
+/// ## Parameters
+///
+///  - `replacements` - A sequence of tuples with the patterns and the replacements.
+///  - `files` - The files to process.
+let ReplaceInFiles replacements files = ReplaceInFilesWithEncoding replacements encoding files
 
 /// Get the version a file.
 /// ## Parameters

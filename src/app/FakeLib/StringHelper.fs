@@ -167,24 +167,30 @@ let liftString x =
     if isNullOrEmpty x then None
     else Some x
 
-/// Reads a file line by line
-let ReadFile(file : string) = 
-    seq { 
+/// Reads a file line by line with the given encoding.
+let ReadFileWithEncoding(file : string) (fileEncoding: Encoding) =
+    seq {
         use textReader = new StreamReader(file, encoding)
         while not textReader.EndOfStream do
             yield textReader.ReadLine()
     }
+
+/// Reads a file line by line with the default environment encoding.
+let ReadFile(file : string) = ReadFileWithEncoding file encoding
 
 /// Reads the first line of a file. This can be helpful to read a password from file.
 let ReadLine(file : string) = 
     use sr = new StreamReader(file, Encoding.Default)
     sr.ReadLine()
 
-/// Writes a file line by line
-let WriteToFile append fileName (lines : seq<string>) = 
+/// Writes a file line by line with the given encoding.
+let WriteToFileWithEncoding append fileName fileEncoding (lines : seq<string>) = 
     let fi = fileInfo fileName
-    use writer = new StreamWriter(fileName, append && fi.Exists, encoding)
+    use writer = new StreamWriter(fileName, append && fi.Exists, fileEncoding)
     lines |> Seq.iter writer.WriteLine
+
+/// Writes a file line by line using the default environment encoding.
+let WriteToFile append fileName (lines : seq<string>) = WriteToFileWithEncoding append fileName encoding lines
 
 /// Removes all trailing .0 from a version string
 let rec NormalizeVersion(version : string) =
@@ -216,6 +222,9 @@ let ReplaceFile fileName text =
     WriteStringToFile false fileName text
 
 let Colon = ','
+
+/// Writes a file line by line
+let WriteFileWithEncoding file fileEncoding lines = WriteToFileWithEncoding false file fileEncoding lines
 
 /// Writes a file line by line
 let WriteFile file lines = WriteToFile false file lines
